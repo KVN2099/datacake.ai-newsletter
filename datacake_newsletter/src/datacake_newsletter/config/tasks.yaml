@@ -1,0 +1,31 @@
+research_task:
+  description: >
+    Conduct a thorough research about {topic}
+    Make sure you find any interesting and relevant information given
+    the current year is 2024.
+    Follow these rules:
+    - Only include articles that are especially relevant to {topic}. Do not include any news that are not directly related to {topic}. 
+    - Do not include sources that are not a news article. If the content of the page includes a list of articles or looks like the front page of a website, do not include it in the list!
+    - Summarize the news in a few sentences. Make the summary as long as necessary to include all the relevant information, but not too long for a newsletter.
+    - Include the URL of the article where you found the news.
+    - Include a minimum of 7 news articles and a maximum of 10 news articles in the list.
+    - When using the Search Tool, your search query should be concise (for example, "latest news on {topic}").
+  expected_output: >
+    A list with 10 bullet points of the most relevant information about {topic}, each with the URL of its source.
+  agent: researcher
+
+reporting_task:
+  description: >
+    Review the context you got, identify the trends of each topic, and write a detailed article that expands on the identified trends.
+    Make sure the report is detailed and contains any and all relevant information.
+    Make sure to mention each topic provided.
+  expected_output: >
+    A rich article with the latest trends based on provided context.
+    Formatted as markdown without '```'
+    Include a Summary section were you summarize in 1-2 paragraphs the content of the article.
+    In the Summary section, make sure to mention all topics discussed in the article.
+    After the Summary section, add a References section with all the URLs of the sources used to get the information.
+    The Summary and References sections should go after the content of the article, at the very end.
+    Do not include the URL of the sources used to get the information under each section, as they are already included in the References section.
+    Do not add any other content after the References section, as this should be the end of the article.
+  agent: reporting_analyst
